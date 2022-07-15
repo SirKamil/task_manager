@@ -1,0 +1,40 @@
+<nav>
+    <a href="/">Log out</a>
+    <a href="/">Back to Home Page</a>
+</nav>
+
+<h2>Task list:</h2>
+<section class="task-list">
+    <ul>
+        {{#each taskList}}
+            <label>
+                <li>
+                    <form action="/login/user/{{this.userID}}/{{this.taskID}}?_method=DELETE" method="POST" name="name">
+                        {{this.taskName}}
+                        <button class="done">Done!</button>
+                    </form>
+                </li>
+            </label>
+        {{/each}}
+    </ul>
+</section>
+
+<section class="add-task">
+    <h2>Add daily task</h2>
+    <form action="/login/user/{{this.id}}" method="POST">
+        <label>
+            <p>Task description:</p>
+            <p>
+                <textarea name="name" cols="30" rows="10"></textarea>
+            </p>
+        </label>
+        <p>
+            <button class="login">Add</button>
+        </p>
+    </form>
+</section>
+
+
+<!--<a href="http://localhost:3001/login">-->
+<!--    <button>Wyloguj</button>-->
+<!--</a>-->
